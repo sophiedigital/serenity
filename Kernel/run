@@ -15,8 +15,7 @@ elif [ "$1" = "qn" ]; then
         -d cpu_reset,guest_errors \
         -device e1000 \
         -kernel kernel \
-        -hda _fs_contents \
-        -soundhw pcspk
+        -hda _fs_contents
 elif [ "$1" = "qtap" ]; then
     # ./run qtap: qemu with tap
     sudo $SERENITY_QEMU_BIN -s -m $ram_size \
@@ -26,8 +25,7 @@ elif [ "$1" = "qtap" ]; then
         -netdev tap,ifname=tap0,id=br0 \
         -device e1000,netdev=br0 \
         -kernel kernel \
-        -hda _fs_contents \
-        -soundhw pcspk
+        -hda _fs_contents
 else
     # ./run: qemu with user networking
     $SERENITY_QEMU_BIN -s -m $ram_size \
@@ -37,7 +35,6 @@ else
         -netdev user,id=breh,hostfwd=tcp:127.0.0.1:8888-192.168.5.2:8888 \
         -device e1000,netdev=breh \
         -kernel kernel \
-        -hda _fs_contents \
-        -soundhw pcspk
+        -hda _fs_contents
 fi
 
