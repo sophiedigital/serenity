@@ -186,7 +186,7 @@ Vector<IPv4Address> lookup(const String& hostname, bool& did_timeout)
 
     dst_addr.sin_family = AF_INET;
     dst_addr.sin_port = htons(53);
-    rc = inet_pton(AF_INET, "127.0.0.53", &dst_addr.sin_addr);
+    rc = inet_pton(AF_INET, "123.23.23.23", &dst_addr.sin_addr);
 
     int nsent = sendto(fd, buffer.pointer(), buffer.size(), 0,(const struct sockaddr *)&dst_addr, sizeof(dst_addr));
     if (nsent < 0) {
